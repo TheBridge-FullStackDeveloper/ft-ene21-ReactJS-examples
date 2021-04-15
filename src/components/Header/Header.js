@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import logo from '../../assets/img/logo.jpg';
 
 class Header extends React.Component {
   constructor(props) {
@@ -8,8 +9,12 @@ class Header extends React.Component {
   
   render() {
     return (
-      <header>[HEADER'S MOVIDAS {typeof this.props.redro === "string" ? this.props.redro : `${this.props.redro.id} ${this.props.redro.name}` }]</header>
-    )
+      <header>
+        <h1>{this.props.brand}</h1>
+        <img className="logo" src={logo} alt="Logo de la empresa" />
+        {/* <Nav /> */}
+      </header>
+    );
   }
 }
 
