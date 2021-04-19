@@ -5,12 +5,16 @@ import Footer from './components/Footer/Footer.js';
 
 function App() {
 
-  const myBrand = "FyF"; // Hardcoded
+  let myBrand = "FyF"; // Hardcoded
+
+  const setBrand = (newBrand) => {
+    // myBrand = newBrand;
+  }
 
   /* JSX */
   return (
     <div className="App">
-      <Header brand={myBrand} />
+      <Header myBrand={myBrand} setBrand={setBrand} />
       <Main />
       <Footer brand={myBrand} />
     </div>
