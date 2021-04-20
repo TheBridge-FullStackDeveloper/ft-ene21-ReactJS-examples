@@ -7,14 +7,17 @@ class Post extends React.Component {
   }
 
   componentWillUnmount() {
-    //...
+    console.log("Me mueroooooooo... y soy el " + this.props.data.id)
   }
+
+  immolateMe = () => this.props.data.deletePost(this.props.data.id)
   
   render() {
     return (
       <article>
-        <h2>{this.props.title}</h2>
-        <p>{this.props.excerpt}</p>
+        <h2>{this.props.data.title}</h2>
+        <p>{this.props.data.excerpt}</p>
+        <button onClick={this.immolateMe}>Borrar</button>
       </article>
     )
   }

@@ -32,9 +32,16 @@ class Main extends React.Component {
 
   drawPosts = () => {
     if (this.state.posts.length > 0) {
-      return this.state.posts.map(item =>
-        <Post title={item.title} excerpt={item.excerpt} />
-      )
+      return this.state.posts.map((item, index) => {
+        const newPost = {
+          id: index,
+          title : item.title,
+          excerpt: item.excerpt,
+          deletePost: this.deletePost
+        }
+
+        return <Post data={newPost} />
+      })
     }
     return <h4>No hay datos</h4>
     // else {
@@ -48,6 +55,14 @@ class Main extends React.Component {
       posts: [...this.state.posts, { title, excerpt }]
     });
   }
+
+  deletePost = index => {
+    this.setState({
+      posts: this.state.posts.filter((post, i) => index !== i)
+    });
+  }
+  
+  drawTotal = () => this.state.posts.length
   
   render() {
     return (
@@ -55,6 +70,7 @@ class Main extends React.Component {
         <h1>Hola, {this.state.user ? this.state.user : "Anónimo"}</h1>
         {/*<h1>Hola, {this.state.user || "Anónimo"}</h1>*/}
         <Form addPost={this.addPost} />
+        <p>{this.drawTotal()}</p>
         {this.drawPosts()}
       </main>
     )
