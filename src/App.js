@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './components/Header/Header.js';
-import Main from './components/Main/Main.js';
-import Footer from './components/Footer/Footer.js';
+import HeaderF from './components/Header/HeaderF';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
   /* JSX */
   return (
     <div className="App">
-      <Header myBrand={myBrand} setBrand={setBrand} />
+      <HeaderF myBrand={myBrand} setBrand={setBrand} />
       <Main />
       <Footer brand={myBrand} />
     </div>
