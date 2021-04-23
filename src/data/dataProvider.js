@@ -9,4 +9,8 @@ function getPosts() {
   }]
 }
 
-export default getPosts
+function closeDB() {
+  // ...
+}
+
+export { getPosts, closeDB }

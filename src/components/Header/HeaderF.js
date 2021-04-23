@@ -11,7 +11,7 @@ const HeaderF = props => {
   const addFarewell = () => setState({ ...state, farewell: "Taluego" })
 
   return (
-      <header>
+      <header className="Header">
         <h1>{props.myBrand}</h1>
         <h2>{state.greeting}</h2>
         <h2>{state.farewell}</h2>
