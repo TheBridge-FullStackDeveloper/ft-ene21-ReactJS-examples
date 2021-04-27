@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import App from '../App';
-const { Provider, Consumer } = React.createContext();
+//const { Provider, Consumer } = React.createContext();
+const ThemeContext = React.createContext();
 
 class ThemeContextProvider extends Component {
   constructor() {
@@ -25,10 +26,11 @@ class ThemeContextProvider extends Component {
       toggleTheme: this.toggleTheme
     }
 
-    return <Provider value={dataContext}>
+    return <ThemeContext.Provider value={dataContext}>
       <App />
-    </Provider>;
+    </ThemeContext.Provider>;
   }
 }
 
-export { ThemeContextProvider, Consumer as ThemeContextConsumer };
+export { ThemeContextProvider };
+export default ThemeContext

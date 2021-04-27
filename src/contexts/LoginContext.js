@@ -1,24 +1,8 @@
-import React, { Component } from "react";
-const { Provider, Consumer } = React.createContext();
+import React from 'react'
 
-import Private from "../components/Private/Private";
+const LoginContext = React.createContext()
 
-class LoginContextProvider extends Component {
-  constructor() {
-    super();
-    
-    this.state = {
-      token: ""
-    }
-  }
-  
-  // ...
+export const LoginProvider = LoginContext.Provider
+export const LoginConsumer = LoginContext.Consumer
 
-  render() {
-    return <Provider context={this.state.token}>
-      <Private />
-    </Provider>;
-  }
-}
-
-export { LoginContextProvider, Consumer as LoginContextConsumer };
+export default LoginContext

@@ -4,7 +4,7 @@ import './Main.css';
 
 import Post from '../Post/Post';
 import Form from '../Form/Form';
-import getPosts from '../../data/dataProvider';
+//import getPosts from '../../data/dataProvider';
 
 class Main extends React.Component {
   constructor(props) {
@@ -70,7 +70,7 @@ class Main extends React.Component {
         <h1>Hola, {this.state.user ? this.state.user : "Anónimo"}</h1>
         {/*<h1>Hola, {this.state.user || "Anónimo"}</h1>*/}
         <Form addPost={this.addPost} />
-        <p>{this.drawTotal()}</p>
+        <p>Tienes {this.drawTotal()} tareas</p>
         {this.drawPosts()}
       </main>
     )

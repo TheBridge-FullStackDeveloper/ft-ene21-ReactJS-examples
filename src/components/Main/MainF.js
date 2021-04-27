@@ -8,10 +8,13 @@ import './Main.css';
 import PostF from '../Post/PostF';
 import Form from '../Form/Form';
 
+import { LoginProvider } from '../../contexts/LoginContext'
+
 const MainF = (props) => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(props.user || "");
   const [limit, setLimit] = useState(10);
+  const [logged, setLogged] = useState(true);
 
   // As componentDidUpdate()
   useEffect(() => {
@@ -48,7 +51,7 @@ const MainF = (props) => {
           id: index,
           title : item.title,
           excerpt: item.excerpt,
-          deletePost: deletePost
+          deletePost
         }
 
         return <PostF data={newPost} key={newPost.id} />
@@ -71,9 +74,16 @@ const MainF = (props) => {
     <main>
       <h1>Hola, {user ? user : "Anónimo"}</h1>
       {/*<h1>Hola, {user || "Anónimo"}</h1>*/}
-      <Form addPost={addPost} />
+      
+      <LoginProvider value={logged}>
+        <Form addPost={addPost} />
+      </LoginProvider>
+      
       <p>{getTotalPosts()}</p>
-      {drawPosts()}
+
+      <LoginProvider value={{ logged, login: () => setLogged(true), logout: () => setLogged(false) }}>
+        {drawPosts()}
+      </LoginProvider>
     </main>
   )
 }

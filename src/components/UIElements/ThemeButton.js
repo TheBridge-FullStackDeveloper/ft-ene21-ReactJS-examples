@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeContextConsumer } from "../../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 class ThemeButton extends Component {
   constructor() {
@@ -8,13 +8,13 @@ class ThemeButton extends Component {
 
   render() {
     return (
-      <ThemeContextConsumer>
+      <ThemeContext.Consumer>
       {context => (
         <button onClick={context.toggleTheme} className="button">
           {context.theme}
         </button>
       )}
-      </ThemeContextConsumer>
+      </ThemeContext.Consumer>
     );
   }
 }

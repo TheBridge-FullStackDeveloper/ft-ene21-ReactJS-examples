@@ -16,7 +16,6 @@ const HeaderF = props => {
         <h2>{state.greeting}</h2>
         <h2>{state.farewell}</h2>
         {drawLogo()}
-        {/* <Nav /> */}
         <button onClick={changeGreeting}>Cambiar saludo</button>
         <button onClick={addFarewell}>Añadir despedida</button>
       </header>
